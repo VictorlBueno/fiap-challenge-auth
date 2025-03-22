@@ -21,11 +21,8 @@ jobs:
       - name: Instala dependências
         run: npm ci --only=production --legacy-peer-deps
 
-      - name: Instala NestJS CLI globalmente
-        run: npm install -g @nestjs/cli
-
       - name: Constrói o projeto com NestJS
-        run: nest build
+        run: npx nest build
 
       - name: Configura AWS CLI
         uses: aws-actions/configure-aws-credentials@v1
