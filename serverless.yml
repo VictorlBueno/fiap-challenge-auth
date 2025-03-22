@@ -1,0 +1,25 @@
+frameworkVersion: ^3.35.2
+service: fiap-challenge-auth-service
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  stage: v1
+  region: us-east-1
+
+functions:
+  api:
+    handler: dist/main.handler
+    events:
+      - http:
+          path: /{proxy+}
+          method: ANY
+
+package:
+  include:
+    - dist/**
+    - node_modules/**
+  exclude:
+    - src/**
+    - terraform.*
+    - .terraform/**
