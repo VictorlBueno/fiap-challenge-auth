@@ -19,6 +19,7 @@ provider:
           Action:
             - cognito-idp:AdminSetUserPassword
             - cognito-idp:AdminCreateUser
+            - cognito-idp:AdminGetUser
             - cognito-idp:ListUsers
           Resource: "arn:aws:cognito-idp:us-east-1:410211328905:userpool/us-east-1_TqEVTFJix"
 
