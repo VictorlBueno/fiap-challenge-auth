@@ -7,7 +7,7 @@
   "license": "UNLICENSED",
   "scripts": {
     "deploy": "npm run build && sls deploy",
-    "build": "npm ci --only=production ---legacy-peer-deps && nest build",
+    "build": "npm ci --only=production --legacy-peer-deps && nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
