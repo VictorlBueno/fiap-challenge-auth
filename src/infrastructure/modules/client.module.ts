@@ -1,9 +1,9 @@
 import {Module} from "@nestjs/common";
-import {CognitoService} from "@/infrastructure/external/cognito.service";
 import {CreateClient} from "@/application/usecases/create-client.usecase";
-import {IamService} from "@/domain/external/iam.service";
 import {ClientController} from "@/infrastructure/controller/client.controller";
 import {GetClient} from "@/application/usecases/get-client.usecase";
+import {CognitoService} from "@/infrastructure/gateway/cognito.service";
+import {IIamService} from "@/domain/gateway/IIamService";
 
 @Module({
     controllers: [ClientController],
@@ -18,7 +18,7 @@ import {GetClient} from "@/application/usecases/get-client.usecase";
         {
             provide: CreateClient.UseCase,
             useFactory: (
-                iamService: IamService,
+                iamService: IIamService,
             ) => {
                 return new CreateClient.UseCase(iamService);
             },
@@ -27,7 +27,7 @@ import {GetClient} from "@/application/usecases/get-client.usecase";
         {
             provide: GetClient.UseCase,
             useFactory: (
-                iamService: IamService,
+                iamService: IIamService,
             ) => {
                 return new GetClient.UseCase(iamService);
             },

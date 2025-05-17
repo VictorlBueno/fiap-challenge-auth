@@ -7,9 +7,9 @@ import {
 import {ClientEntity} from "@/domain/entities/client.entity";
 import {UsernameExistsError} from "@/infrastructure/shared/errors/username-exists-error";
 import {NotFoundError} from "@/infrastructure/shared/errors/not-found-error";
-import {IamService} from "@/domain/external/iam.service";
+import {IIamService} from "@/domain/gateway/IIamService";
 
-export class CognitoService implements IamService{
+export class CognitoService implements IIamService {
     private cognitoClient: CognitoIdentityProviderClient;
     private clientId: string = '4cfnvonicktdark421fvtp0p7v';
     private clientSecret: string = '1i2abo0j35mei4j0lkfdl00qo1oc9lhopb1ku3cehr27qdp50otk';

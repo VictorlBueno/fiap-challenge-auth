@@ -25,7 +25,7 @@ export class ClientEntity extends Entity<ClientProps> {
         return this.props.name;
     }
 
-    private set name(name: string) {
+    set name(name: string) {
         this.props.name = name;
     }
 
@@ -33,7 +33,7 @@ export class ClientEntity extends Entity<ClientProps> {
         return this.props.cpf;
     }
 
-    private set cpf(cpf: string) {
+    set cpf(cpf: string) {
         this.props.cpf = cpf;
     }
 
@@ -41,7 +41,7 @@ export class ClientEntity extends Entity<ClientProps> {
         return this.props.password;
     }
 
-    private set password(password: string) {
+    set password(password: string) {
         this.props.password = password;
     }
 
@@ -49,7 +49,7 @@ export class ClientEntity extends Entity<ClientProps> {
         return this.props.email;
     }
 
-    private set email(email: string) {
+    set email(email: string) {
         this.props.email = email;
     }
 }

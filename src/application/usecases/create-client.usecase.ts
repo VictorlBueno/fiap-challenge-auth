@@ -1,8 +1,8 @@
 import {UseCase as DefaultUseCase} from "@/application/shared/usecases/usecase";
 import {ClientEntity} from "@/domain/entities/client.entity";
-import {IamService} from "@/domain/external/iam.service";
 import {BadRequestError} from "@/application/shared/errors/bad-request-error";
 import {cpf} from 'cpf-cnpj-validator';
+import {IIamService} from "@/domain/gateway/IIamService";
 
 /**
  * Como o sistema é baseado em um totem, não exijo uma senha e nem e-mail para agilidade e até mesmo
@@ -21,7 +21,7 @@ export namespace CreateClient {
     export type Output = ClientEntity;
 
     export class UseCase implements DefaultUseCase<Input, Output> {
-        constructor(private iamService: IamService) {
+        constructor(private iamService: IIamService) {
         }
 
         async execute(input: Input): Promise<Output> {
