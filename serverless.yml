@@ -1,5 +1,6 @@
-frameworkVersion: ^3.35.2
 service: fiap-challenge-auth-service
+
+frameworkVersion: ^3.35.2
 
 provider:
   name: aws
@@ -25,17 +26,8 @@ provider:
 
 functions:
   api:
-    handler: dist/main.handler
+    handler: dist/src/main.handler
     events:
       - http:
           path: /{proxy+}
           method: ANY
-
-package:
-  include:
-    - dist/**
-    - node_modules/**
-  exclude:
-    - src/**
-    - terraform.*
-    - .terraform/**

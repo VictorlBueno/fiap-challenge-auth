@@ -48,7 +48,7 @@ jobs:
           node-version: '18'
 
       - name: Instala dependências
-        run: npm ci --only=production --legacy-peer-deps
+        run: npm install --legacy-peer-deps
 
       - name: Instala NestJS CLI globalmente
         run: npm install -g @nestjs/cli
