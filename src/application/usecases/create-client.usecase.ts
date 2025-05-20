@@ -21,7 +21,7 @@ export namespace CreateClient {
     export type Output = ClientEntity;
 
     export class UseCase implements DefaultUseCase<Input, Output> {
-        constructor(private iamService: IIamService) {
+        constructor(private readonly iamService: IIamService) {
         }
 
         async execute(input: Input): Promise<Output> {
