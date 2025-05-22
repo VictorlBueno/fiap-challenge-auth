@@ -10,10 +10,10 @@ import {NotFoundError} from "@/infrastructure/shared/errors/not-found-error";
 import {IIamService} from "@/domain/gateway/IIamService";
 
 export class CognitoService implements IIamService {
-    private cognitoClient: CognitoIdentityProviderClient;
-    private clientId: string = '4cfnvonicktdark421fvtp0p7v';
-    private clientSecret: string = '1i2abo0j35mei4j0lkfdl00qo1oc9lhopb1ku3cehr27qdp50otk';
-    private userPoolId: string = 'us-east-1_TqEVTFJix';
+    private readonly cognitoClient: CognitoIdentityProviderClient;
+    private readonly clientId: string = '4cfnvonicktdark421fvtp0p7v';
+    private readonly clientSecret: string = '1i2abo0j35mei4j0lkfdl00qo1oc9lhopb1ku3cehr27qdp50otk';
+    private readonly userPoolId: string = 'us-east-1_TqEVTFJix';
 
     constructor() {
         this.cognitoClient = new CognitoIdentityProviderClient({
@@ -46,7 +46,7 @@ export class CognitoService implements IIamService {
                 throw new UsernameExistsError("Usuário já existe");
             }
 
-            console.error("Erro ao criar usuário:", error.code || error.message);
+            console.error("Erro ao criar usuário:", error.code ?? error.message);
             throw new Error('Erro ao criar usuário no Cognito');
         }
     }

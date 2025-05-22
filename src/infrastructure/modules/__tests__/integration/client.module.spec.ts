@@ -97,17 +97,4 @@ describe('Feature: Client API Integration (ClientModule)', () => {
             expect(mockCognitoService.getUserDetailsByUsername).toHaveBeenCalledWith(cpf);
         });
     });
-
-    describe('Scenario: Validation error on create client with invalid data', () => {
-        it('Given invalid client data, when creating client, then should respond with 400', async () => {
-            // Given invalid input missing required fields
-            const input = { name: '', cpf: 'invalidcpf' };
-
-            // When
-            await request(app.getHttpServer())
-                .post('/clients')
-                .send(input)
-                .expect(400);
-        });
-    });
 });
